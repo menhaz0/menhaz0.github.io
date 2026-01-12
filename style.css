@@ -6,7 +6,7 @@
 
 body {
     background-color: white;
-    color: black;
+    color: #1D4F91; /* Darker blue for text readability */
     font-family: 'Arial', 'Segoe UI', sans-serif;
     line-height: 1.6;
 }
@@ -14,41 +14,47 @@ body {
 /* Navigation */
 nav {
     background-color: white;
-    padding: 1.5rem;
-    border-bottom: 3px solid black;
+    padding: 1rem 2rem;
+    border-bottom: 4px solid #B9D9EB; /* Columbia Blue border */
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 45px; /* Adjust based on your logo shape */
+    width: auto;
+    display: block;
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    gap: 3rem;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
+    gap: 1.5rem;
 }
 
 nav a {
     text-decoration: none;
     color: black;
     font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: all 0.3s;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-nav a:hover {
-    background-color: black;
-    color: white;
-}
-
-nav a.active {
-    background-color: black;
+nav a:hover, nav a.active {
+    background-color: #B9D9EB; /* Columbia Blue */
     color: white;
 }
 
@@ -65,20 +71,16 @@ nav a.active {
     gap: 4rem;
     margin-bottom: 4rem;
     padding: 2rem;
-    background-color: #fafafa;
+    background-color: #f8fbfe; /* Very faint blue tint */
     border-radius: 12px;
-    border: 2px solid #eee;
-}
-
-.profile-image-container {
-    flex-shrink: 0;
+    border: 2px solid #B9D9EB;
 }
 
 .circular-image {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    border: 10px solid black;
+    border: 8px solid #B9D9EB; /* Columbia Blue border */
     overflow: hidden;
     background-color: #f0f0f0;
 }
@@ -89,15 +91,10 @@ nav a.active {
     object-fit: cover;
 }
 
-.profile-info {
-    flex-grow: 1;
-}
-
 .profile-info h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    text-align: left;
-    color: black;
+    color: #1D4F91;
 }
 
 .tagline {
@@ -107,87 +104,27 @@ nav a.active {
     font-weight: 300;
 }
 
-.bio {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #333;
-}
-
-/* About Section */
-.about-section {
-    margin-bottom: 4rem;
-    padding: 2rem;
-}
-
-.about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: black;
-    text-align: left;
-}
-
-.about-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 800px;
-}
-
-.skills {
-    margin-top: 2rem;
-}
-
-.skills h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.skills ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
+/* Skills */
 .skills li {
-    background-color: black;
+    background-color: #B9D9EB; /* Columbia Blue */
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 25px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* Contact Section */
 .contact-section {
     text-align: center;
     padding: 3rem;
-    background-color: #fafafa;
+    background-color: #f8fbfe;
     border-radius: 12px;
     margin-top: 2rem;
-    border: 2px solid #eee;
-}
-
-.contact-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.contact-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #444;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    border: 2px solid #B9D9EB;
 }
 
 .contact-btn {
-    background-color: black;
+    background-color: #B9D9EB; /* Columbia Blue */
     color: white;
     padding: 1rem 2rem;
     text-decoration: none;
@@ -195,13 +132,12 @@ nav a.active {
     font-weight: 600;
     transition: all 0.3s;
     min-width: 150px;
-    text-align: center;
+    display: inline-block;
 }
 
 .contact-btn:hover {
-    background-color: #333;
+    background-color: #9ac2d9; /* Slightly darker shade for hover */
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Footer */
@@ -209,82 +145,18 @@ footer {
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
-    border-top: 3px solid black;
+    border-top: 4px solid #B9D9EB;
     color: #666;
-    font-size: 0.9rem;
 }
 
-/* Projects Page Styles (kept from before) */
-.projects {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.project {
-    background-color: #fafafa;
-    padding: 2rem;
-    border-radius: 8px;
-    border-left: 5px solid black;
-    transition: transform 0.3s;
-}
-
-.project:hover {
-    transform: translateX(5px);
-}
-
-.project h2 {
-    margin-bottom: 0.5rem;
-}
-
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
     .profile-header {
         flex-direction: column;
         text-align: center;
-        gap: 2rem;
-    }
-    
-    .profile-info h1 {
-        text-align: center;
-    }
-    
-    .circular-image {
-        width: 200px;
-        height: 200px;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    
-    .contact-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .skills li {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 1rem;
-    }
-    
-    .circular-image {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .profile-info h1 {
-        font-size: 2.2rem;
-    }
-    
-    .tagline {
-        font-size: 1.2rem;
     }
 }
