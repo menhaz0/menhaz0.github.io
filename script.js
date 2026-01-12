@@ -1,29 +1,50 @@
-// Wait for the document to load before running the script 
-(function ($) {
-  
-  // We use some Javascript and the URL #fragment to hide/show different parts of the page
-  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Linking_to_an_element_on_the_same_page
-  $(window).on('load hashchange', function(){
+function uploadImage() {
+    const input = document.getElementById('imageUpload');
+    const preview = document.getElementById('imagePreview');
+    const text = document.getElementById('imageText');
     
-    // First hide all content regions, then show the content-region specified in the URL hash 
-    // (or if no hash URL is found, default to first menu item)
-    $('.content-region').hide();
-    
-    // Remove any active classes on the main-menu
-    $('.main-menu a').removeClass('active');
-    var region = location.hash.toString() || $('.main-menu a:first').attr('href');
-    
-    // Now show the region specified in the URL hash
-    $(region).show();
-    
-    // Highlight the menu link associated with this region by adding the .active CSS class
-    $('.main-menu a[href="'+ region +'"]').addClass('active'); 
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            // Clear previous content
+            preview.innerHTML = '';
+            
+            // Create and add new image
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.alt = "Uploaded Image";
+            preview.appendChild(img);
+            
+            // Update text
+            text.textContent = "Image uploaded successfully!";
+            text.style.color = "black";
+        };
+        
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        alert('Please select an image file first.');
+    }
+}
 
-    // Alternate method: Use AJAX to load the contents of an external file into a div based on URL fragment
-    // This will extract the region name from URL hash, and then load [region].html into the main #content div
-    // var region = location.hash.toString() || '#first';
-    // $('#content').load(region.slice(1) + '.html')
+function clearImage() {
+    const preview = document.getElementById('imagePreview');
+    const text = document.getElementById('imageText');
+    const input = document.getElementById('imageUpload');
     
-  });
-  
-})(jQuery);
+    // Clear the image
+    preview.innerHTML = '';
+    
+    // Reset the file input
+    input.value = '';
+    
+    // Reset text
+    text.textContent = "No image uploaded yet";
+    text.style.color = "#666";
+}
+
+document.getElementById('imageUpload').addEventListener('change', function() {
+    if (this.files && this.files[0]) {
+        uploadImage();
+    }
+});
